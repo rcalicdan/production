@@ -4,7 +4,7 @@
         "builder": "NIXPACKS"
     },
     "deploy": {
-        "startCommand": "mkdir -p /app/writable/{cache,debugbar,logs,session} && chmod -R 775 /app/writable && chown -R www-data:www-data /app/writable && php-fpm -y /app/php-fpm.conf -D && nginx -c /app/nginx.conf -g 'daemon off;'",
+        "startCommand": "mkdir -p /app/writable/{cache,debugbar,logs,session} /data/defer_logs /data/defer_tasks /tmp/defer_tasks && chmod -R 775 /app/writable /data/defer_logs /data/defer_tasks /tmp/defer_tasks && chown -R www-data:www-data /app/writable /data/defer_logs /data/defer_tasks /tmp/defer_tasks && php-fpm -y /app/php-fpm.conf -D && nginx -c /app/nginx.conf -g 'daemon off;'",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
     }
