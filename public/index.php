@@ -58,7 +58,7 @@ $total_duration = $end_time - $start_time;
                         <ol class="list-decimal list-inside space-y-2 text-gray-700">
                             <li>Dispatched <span class="font-semibold text-indigo-600">Task A</span> - background job taking <span class="font-semibold">2 seconds</span></li>
                             <li>Immediately dispatched <span class="font-semibold text-purple-600">Task B</span> - background job taking <span class="font-semibold">3 seconds</span></li>
-                            <li>Main script waited for both tasks using <code class="bg-gray-200 px-2 py-1 rounded text-sm">Fiber Async::awaitTaskAll()</code></li>
+                            <li>Main script waited for both tasks using <code class="bg-gray-200 px-2 py-1 rounded text-sm">Task::runAll()</code></li>
                         </ol>
                     </div>
                 </div>
