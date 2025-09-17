@@ -12,7 +12,7 @@ return [
     |
     */
     'viewsPath' => __DIR__ . "/../app/Views",
-    
+
     /*
     |--------------------------------------------------------------------------
     | Cache Path
@@ -22,8 +22,8 @@ return [
     | system will find or create a writable cache directory automatically.
     |
     */
-    'cachePath' => __DIR__ . "/../storage/cache", 
-    
+    'cachePath' => sys_get_temp_dir() . '/blade_cache',
+
     /*
     |--------------------------------------------------------------------------
     | Component Configuration
@@ -35,7 +35,7 @@ return [
     */
     'componentNamespace' => 'components',
     'componentPath' => __DIR__ . "/../app/Views/components",
-    
+
     /*
     |--------------------------------------------------------------------------
     | Additional View Namespaces
@@ -51,7 +51,7 @@ return [
         // 'admin' => null, // Will use views/admin if null
         // 'emails' => null, // Will use views/emails if null
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Debug Mode
@@ -62,7 +62,7 @@ return [
     |
     */
     'debug' => null, // Auto-detection if null
-    
+
     /*
     |--------------------------------------------------------------------------
     | Auto Reload
@@ -73,7 +73,7 @@ return [
     |
     */
     'autoReload' => true,
-    
+
     /*
     |--------------------------------------------------------------------------
     | Custom Directives
@@ -86,7 +86,7 @@ return [
     'customDirectives' => [
         //
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Error Handling
@@ -100,7 +100,7 @@ return [
         'logErrors' => true,
         'errorView' => null, // Custom error template
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Performance Settings
@@ -114,7 +114,7 @@ return [
         'cacheFileChecks' => true, // Cache file existence checks
         'optimizeIncludes' => true, // Optimize @include directives
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Security Settings
@@ -128,7 +128,7 @@ return [
         'escapeByDefault' => true, // Auto-escape variables
         'allowPhpTags' => false, // Allow raw PHP in templates
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Environment-Specific Overrides
@@ -146,7 +146,7 @@ return [
                 'cacheFileChecks' => true,
             ],
         ],
-        
+
         'development' => [
             'debug' => true,
             'autoReload' => true,
@@ -154,7 +154,7 @@ return [
                 'showErrors' => true,
             ],
         ],
-        
+
         'testing' => [
             'cachePath' => '/tmp/blade_test_cache',
             'performance' => [
