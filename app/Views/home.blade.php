@@ -1,32 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome Home</title>
+    <title>Fiber Async Library - Parallel Execution Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 text-center">
-            <h1 class="text-3xl font-bold text-white">Welcome Home</h1>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-t-2xl p-8 text-center">
+            <h1 class="text-4xl font-bold mb-2">Fiber Async Library Test</h1>
+            <p class="text-xl opacity-90">Parallel Execution Demonstration</p>
         </div>
-        
-        <div class="p-8 text-center">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-4">
-                <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg>
-                <p class="text-red-500 text-lg font-medium">Execution Time: {{ $executionTime }} seconds</p>
+
+        <!-- Main Content -->
+        <div class="bg-white rounded-b-2xl shadow-2xl overflow-hidden">
+            <div class="p-8">
+
+                <!-- Test Setup -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <span class="bg-indigo-100 text-indigo-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
+                        Test Setup
+                    </h2>
+                    <div class="bg-gray-50 border-l-4 border-indigo-500 p-6 rounded-r-lg">
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                            <li>Dispatched <span class="font-semibold text-indigo-600">Task A</span> - background job taking <span class="font-semibold">2 seconds</span></li>
+                            <li>Immediately dispatched <span class="font-semibold text-purple-600">Task B</span> - background job taking <span class="font-semibold">3 seconds</span></li>
+                            <li>Main script waited for both tasks using <code class="bg-gray-200 px-2 py-1 rounded text-sm">Task::runAll()</code></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Expected Outcome -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Expected Outcome</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-red-800 mb-2">Sequential Execution</h4>
+                            <p class="text-red-700 text-sm">Total time: <span class="font-bold">5+ seconds</span> (2s + 3s + overhead)</p>
+                        </div>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">Parallel Execution</h4>
+                            <p class="text-green-700 text-sm">Total time: <span class="font-bold">~3 seconds</span> (longest task + overhead)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-gray-300 my-8">
+
+                <!-- Results Section -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <span class="bg-green-100 text-green-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">✓</span>
+                        Live Results
+                    </h2>
+
+                    <!-- Task Results -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg">
+                            <h4 class="font-semibold text-indigo-800 mb-2">Task A Result</h4>
+                            <p class="text-gray-700">{{ $result_A }}</p>
+                        </div>
+                        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">Task B Result</h4>
+                            <p class="text-gray-700">{{ $result_B }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Timing Display -->
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-6 text-center">
+                        <h3 class="text-lg font-semibold mb-2">Total Page Load Time</h3>
+                        <div class="text-5xl font-bold mb-2">{{ number_format($total_duration, 2) }}s</div>
+                        <p class="opacity-90">Measured from start to finish</p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-300 my-8">
+
+                <!-- Conclusion -->
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Conclusion</h2>
+
+                    <?php if ($total_duration < 4): ?>
+                        <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6">
+                            <div class="text-6xl mb-4">🎉</div>
+                            <h3 class="text-2xl font-bold text-green-800 mb-4">Success!</h3>
+                            <p class="text-green-700 text-lg mb-4">
+                                Total time was approximately <span class="font-bold">{{ number_format($total_duration, 2) }} seconds</span>, not 5+ seconds.
+                            </p>
+                            <div class="bg-white border border-green-300 rounded-lg p-4 inline-block">
+                                <p class="text-green-800">
+                                    <span class="font-semibold">Proof of parallel execution:</span> Task A and Task B ran simultaneously
+                                    in separate processes, even from a single web request.
+                                </p>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="bg-red-50 border-2 border-red-200 rounded-xl p-6">
+                            <div class="text-6xl mb-4">⚠️</div>
+                            <h3 class="text-2xl font-bold text-red-800 mb-4">Sequential Execution Detected</h3>
+                            <p class="text-red-700 text-lg mb-4">
+                                Total time was <span class="font-bold">{{ number_format($total_duration, 2) }} seconds</span> - over 4 seconds.
+                            </p>
+                            <div class="bg-white border border-red-300 rounded-lg p-4 inline-block">
+                                <p class="text-red-800">
+                                    This indicates the tasks may have run sequentially rather than in parallel.
+                                </p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
             </div>
-            <p class="text-red-500 text-lg font-medium">Home Page</p>
-            <p class="text-gray-600 mt-2">You've successfully landed on our beautiful homepage</p>
         </div>
-        
-        <div class="bg-gray-50 px-6 py-4 text-center">
-            <p class="text-sm text-gray-500">Built with Tailwind CSS</p>
+
+        <!-- Footer -->
+        <div class="text-center mt-8 text-gray-600">
+            <p class="text-sm">Powered by the Fiber Async Library | Test completed at {{ date('Y-m-d H:i:s') }}</p>
         </div>
+
     </div>
 </body>
+
 </html>

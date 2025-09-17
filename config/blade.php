@@ -1,5 +1,4 @@
 <?php
-// config/blade.php
 
 return [
     /*
@@ -74,19 +73,6 @@ return [
     |
     */
     'autoReload' => true,
-    
-    /*
-    |--------------------------------------------------------------------------
-    | File Extensions
-    |--------------------------------------------------------------------------
-    |
-    | Define which file extensions should be treated as Blade templates.
-    |
-    */
-    'extensions' => [
-        'blade.php',
-        'blade.html',
-    ],
     
     /*
     |--------------------------------------------------------------------------

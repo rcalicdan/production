@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Rcalicdan\FiberAsync\Api\Promise;
+use Rcalicdan\FiberAsync\Api\Timer;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 
@@ -12,16 +12,29 @@ class HomeController
 {
     public function index(Request $request, Response $response, $args)
     {
-        $startTime = microtime(true);
-        Promise::all([
-            delay(1),
-            delay(2),
-            delay(3),
-        ])->await();
+        $start_time = microtime(true);
 
-        $endTime = microtime(true);
-        $executionTime = $endTime - $startTime;
+        $results = run_all([
+            'task_A' => function () {
+                Timer::sleep(2);
+                return "Task A (slept for 2 seconds) finished successfully.";
+            },
+            'task_B' => function () {
+                Timer::sleep(3);
+                return "Task B (slept for 3 seconds) finished successfully.";
+            }
+        ]);
 
-        return view($response, 'home', ['executionTime' => $executionTime]);
+        $result_A = $results['task_A'];
+        $result_B = $results['task_B'];
+
+        $end_time = microtime(true);
+        $total_duration = $end_time - $start_time;
+
+        return view($response, 'home', [
+            'total_duration' => $total_duration,
+            'result_A' => $result_A,
+            'result_B' => $result_B,
+        ]);
     }
 }
