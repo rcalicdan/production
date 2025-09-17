@@ -3,7 +3,7 @@
 use Library\Defer\Defer;
 use Library\Defer\Process;
 
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requestTime = microtime(true);
