@@ -1900,12 +1900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rcalicdan/fiber-async.git",
-                "reference": "35386663d9223f831088ba3c7acd93e1f9fed26e"
+                "reference": "83ec19db3388c42397ae99ef901db287386670c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rcalicdan/fiber-async/zipball/35386663d9223f831088ba3c7acd93e1f9fed26e",
-                "reference": "35386663d9223f831088ba3c7acd93e1f9fed26e",
+                "url": "https://api.github.com/repos/rcalicdan/fiber-async/zipball/83ec19db3388c42397ae99ef901db287386670c4",
+                "reference": "83ec19db3388c42397ae99ef901db287386670c4",
                 "shasum": ""
             },
             "require": {
@@ -1955,7 +1955,7 @@
                 "issues": "https://github.com/rcalicdan/fiber-async/issues",
                 "source": "https://github.com/rcalicdan/fiber-async/tree/main"
             },
-            "time": "2025-09-17T06:52:12+00:00"
+            "time": "2025-09-17T16:22:13+00:00"
         },
         {
             "name": "rcalicdan/mysql-binary-protocol",
