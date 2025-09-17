@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "deca1c6a3824e1d15802547e20c17ed6",
+    "content-hash": "ecb0dc765ad56afe6dd805611aac0e96",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -409,12 +409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rcalicdan/fiber-async.git",
-                "reference": "9e75eb318f49e0d06b5a6a0dda72164cd22889f4"
+                "reference": "35386663d9223f831088ba3c7acd93e1f9fed26e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rcalicdan/fiber-async/zipball/9e75eb318f49e0d06b5a6a0dda72164cd22889f4",
-                "reference": "9e75eb318f49e0d06b5a6a0dda72164cd22889f4",
+                "url": "https://api.github.com/repos/rcalicdan/fiber-async/zipball/35386663d9223f831088ba3c7acd93e1f9fed26e",
+                "reference": "35386663d9223f831088ba3c7acd93e1f9fed26e",
                 "shasum": ""
             },
             "require": {
@@ -464,7 +464,7 @@
                 "issues": "https://github.com/rcalicdan/fiber-async/issues",
                 "source": "https://github.com/rcalicdan/fiber-async/tree/main"
             },
-            "time": "2025-09-14T13:14:17+00:00"
+            "time": "2025-09-17T06:52:12+00:00"
         },
         {
             "name": "rcalicdan/mysql-binary-protocol",
@@ -1356,7 +1356,9 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
+    "platform": {
+        "php": "^8.2"
+    },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
