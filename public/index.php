@@ -1,18 +1,20 @@
 <?php
 
 use Library\Defer\Parallel;
+use Rcalicdan\FiberAsync\Api\Task;
+use Rcalicdan\FiberAsync\Api\Timer;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $start_time = microtime(true);
 
-$results = Parallel::all([
+$results = Task::runAll([
     'task_A' => function () {
-        sleep(2);
+        Timer::sleep(2);
         return "Task A (slept for 2 seconds) finished successfully.";
     },
     'task_B' => function () {
-        sleep(3);
+        Timer::sleep(3);
         return "Task B (slept for 3 seconds) finished successfully.";
     }
 ]);
