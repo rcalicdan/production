@@ -1,18 +1,19 @@
 <?php
 
-use Library\Defer\Parallel;
+use Rcalicdan\FiberAsync\Api\Task;
+use Rcalicdan\FiberAsync\Api\Timer;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $start_time = microtime(true);
 
-$results = Parallel::all([
+$results = Task::runAll([
     'task_A' => function () {
-        sleep(2);
+        Timer::sleep(2);
         return "Task A (slept for 2 seconds) finished successfully.";
     },
     'task_B' => function () {
-        sleep(3);
+        Timer::sleep(3);
         return "Task B (slept for 3 seconds) finished successfully.";
     }
 ]);
@@ -30,7 +31,7 @@ $total_duration = $end_time - $start_time;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Defer Library - Parallel Execution Test</title>
+    <title>Fiber Async Library - Parallel Execution Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -39,7 +40,7 @@ $total_duration = $end_time - $start_time;
 
         <!-- Header -->
         <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-t-2xl p-8 text-center">
-            <h1 class="text-4xl font-bold mb-2">Defer Library Test</h1>
+            <h1 class="text-4xl font-bold mb-2">Fiber Async Library Test</h1>
             <p class="text-xl opacity-90">Parallel Execution Demonstration</p>
         </div>
 
@@ -57,7 +58,7 @@ $total_duration = $end_time - $start_time;
                         <ol class="list-decimal list-inside space-y-2 text-gray-700">
                             <li>Dispatched <span class="font-semibold text-indigo-600">Task A</span> - background job taking <span class="font-semibold">2 seconds</span></li>
                             <li>Immediately dispatched <span class="font-semibold text-purple-600">Task B</span> - background job taking <span class="font-semibold">3 seconds</span></li>
-                            <li>Main script waited for both tasks using <code class="bg-gray-200 px-2 py-1 rounded text-sm">Defer::awaitTaskAll()</code></li>
+                            <li>Main script waited for both tasks using <code class="bg-gray-200 px-2 py-1 rounded text-sm">Task::runAll()</code></li>
                         </ol>
                     </div>
                 </div>
@@ -147,7 +148,7 @@ $total_duration = $end_time - $start_time;
 
         <!-- Footer -->
         <div class="text-center mt-8 text-gray-600">
-            <p class="text-sm">Powered by the Defer Library | Test completed at <?php echo date('Y-m-d H:i:s'); ?></p>
+            <p class="text-sm">Powered by the Fiber Async Library | Test completed at <?php echo date('Y-m-d H:i:s'); ?></p>
         </div>
 
     </div>
