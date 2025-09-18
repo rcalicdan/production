@@ -1865,12 +1865,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rcalicdan/defer-test.git",
-                "reference": "5a640a39ef6b5f13911f3097b36502b1470bd279"
+                "reference": "cbced239645aa2f0e77427b619420d5f097dc338"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rcalicdan/defer-test/zipball/5a640a39ef6b5f13911f3097b36502b1470bd279",
-                "reference": "5a640a39ef6b5f13911f3097b36502b1470bd279",
+                "url": "https://api.github.com/repos/rcalicdan/defer-test/zipball/cbced239645aa2f0e77427b619420d5f097dc338",
+                "reference": "cbced239645aa2f0e77427b619420d5f097dc338",
                 "shasum": ""
             },
             "require": {
@@ -1893,7 +1893,7 @@
                 "issues": "https://github.com/rcalicdan/defer-test/issues",
                 "source": "https://github.com/rcalicdan/defer-test/tree/main"
             },
-            "time": "2025-09-18T04:13:00+00:00"
+            "time": "2025-09-18T04:33:32+00:00"
         },
         {
             "name": "rcalicdan/fiber-async",
