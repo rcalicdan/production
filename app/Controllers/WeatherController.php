@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use Rcalicdan\FiberAsync\Api\Http;
-use Rcalicdan\FiberAsync\Http\Response as HttpResponse;
 use Rcalicdan\FiberAsync\Promise\Interfaces\PromiseInterface;
 use Rcalicdan\FiberAsync\Promise\Promise;
 use Slim\Psr7\Request;

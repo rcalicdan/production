@@ -1865,17 +1865,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rcalicdan/defer-test.git",
-                "reference": "e2e5ca292887d4bde759d7e49f69c406e0ee1481"
+                "reference": "efc5e16c8bc990b217702d90558e3e1e2bb61230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rcalicdan/defer-test/zipball/e2e5ca292887d4bde759d7e49f69c406e0ee1481",
-                "reference": "e2e5ca292887d4bde759d7e49f69c406e0ee1481",
+                "url": "https://api.github.com/repos/rcalicdan/defer-test/zipball/efc5e16c8bc990b217702d90558e3e1e2bb61230",
+                "reference": "efc5e16c8bc990b217702d90558e3e1e2bb61230",
                 "shasum": ""
             },
             "require": {
                 "opis/closure": "^4.3",
-                "rcalicdan/fiber-async": "dev-main"
+                "rcalicdan/fiber-async": "dev-main",
+                "symfony/process": "8.0.x-dev"
             },
             "default-branch": true,
             "type": "library",
@@ -1892,7 +1893,7 @@
                 "issues": "https://github.com/rcalicdan/defer-test/issues",
                 "source": "https://github.com/rcalicdan/defer-test/tree/main"
             },
-            "time": "2025-09-17T07:19:29+00:00"
+            "time": "2025-09-18T03:40:07+00:00"
         },
         {
             "name": "rcalicdan/fiber-async",
@@ -3010,6 +3011,71 @@
                 }
             ],
             "time": "2025-07-08T02:45:35+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "8.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "d2714b50df4b45d5556ba4dd5ee1a193b45d24ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/d2714b50df4b45d5556ba4dd5ee1a193b45d24ce",
+                "reference": "d2714b50df4b45d5556ba4dd5ee1a193b45d24ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Executes commands in sub-processes",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-08-18T13:24:29+00:00"
         },
         {
             "name": "symfony/service-contracts",
