@@ -14,6 +14,7 @@ $app->get('/weather/search', [WeatherController::class, 'showForm']);
 $app->post('/weather', [WeatherController::class, 'getWeather']);
 $app->get('/defer-test', [DeferTestController::class, 'showTest']);
 $app->get('/defer-status', [DeferTestController::class, 'getStatus']);
-$app->get('/parallel', [ParallelController::class, 'index']);
+$app->get('/debug', [ParallelController::class, 'index']);
+$app->get('/parallel-test', [ParallelController::class, 'parallelTest']);
 
 $app->run();
