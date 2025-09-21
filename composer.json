@@ -13,6 +13,7 @@
         "rcalicdan/defer-test": "dev-main",
         "rcalicdan/blade-lite": "dev-main",
         "slim/slim": "4.*",
-        "slim/psr7": "dev-main"
+        "slim/psr7": "dev-main",
+        "react/async": "4.x-dev"
     }
 }
